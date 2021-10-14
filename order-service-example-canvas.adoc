@@ -7,48 +7,48 @@ This canvas describes the `Order Service`, which is part of the https://github.c
 
 [cols="8*"]
 |===
-3+a| Name: 5+a| Order Service
+3+a| Name: 5+a| Serviço de Pedido
 
-3+a| *Description:*
+3+a| *Descrição:*
 5+a|
 
-The Order Service provides an API for creating, revising, and cancelling orders.
+O Serviço de Pedido fornece uma API para a criação, revisão e cancelamento de pedidos.
 
-8+a| *Capabilities*
+8+a| *Competências*
 8+a|
-Order Management
-8+| *Service API*
-3+| Commands 3+| Queries 2+| Events Published
-3+a| Synchronous:
+Gerenciamento de Pedido
+8+| *API do Serviço*
+3+| Comandos 3+| Consultas 2+| Eventos Publicados
+3+a| Síncronos:
 
-* createOrder()
-* reviseOrder()
-* cancelOrder()
+* criarPedido()
+* revisarPedido()
+* cancelarPedido()
 
-Asynchronous:
+Assíncrono:
 
 * N/A
 
- 3+a| getOrder() 2+a| Order event channel:
+ 3+a| buscarPedido() 2+a| Canal de evento de Pedido:
 
-* Order Created
-* Order Authorized
-* Order Revised
-* Order Cancelled
+* Pedido Criado
+* Pedido Autorizado
+* Pedido Revisado
+* Pedido Cancelado
 * ...
 
-3+| Non-functional requirements 5+a|
+3+| Requisitos Não-Funcionais 5+a|
 
-* 99.95% availability
-* 1000 orders/second
+* 99.95% disponibilidade
+* 1000 pedidos/segundo
 
-8+| *Observability*
-8+| Key metrics
+8+| *Observalidade*
+8+| Métricas-chave
 8+a|
 
-* placed_orders
-* approved_orders
-* rejected_orders
+* pedido_feito
+* pedido_aprovado
+* pedido_rejeitado
 * ...
 
 4+| Health check endpoint
