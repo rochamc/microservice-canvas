@@ -1,9 +1,9 @@
-= Order Service canvas
+= Canvas do Serviço de Pedido
 Chris Richardson <http://microservices.io>
 Copyright (c) 2019 Chris Richardson Consulting Inc. All rights reserved
 
 
-This canvas describes the `Order Service`, which is part of the https://github.com/microservices-patterns/ftgo-application/[FTGO application].
+Esse canvas descreve o `Serviço de Pedido`
 
 [cols="8*"]
 |===
@@ -39,10 +39,10 @@ Assíncrono:
 
 3+| Requisitos Não-Funcionais 5+a|
 
-* 99.95% disponibilidade
+* 99.95% de disponibilidade
 * 1000 pedidos/segundo
 
-8+| *Observalidade*
+8+| *Observabilidade*
 8+| Métricas-chave
 8+a|
 
@@ -51,41 +51,41 @@ Assíncrono:
 * pedido_rejeitado
 * ...
 
-4+| Health check endpoint
+4+| Endpoint de verificação de saúde
 4+| /actuator/health
 
 
 
-8+| *Implementation*
-8+| Domain Model
-8+a| * Order aggregate
-8+| *Dependencies*
-4+| Invokes 4+| Subscribes to
+8+| *Implementação*
+8+| Modelo de Domínio
+8+a| * Agregado de Pedido
+8+| *Dependências*
+4+| Invoca 4+| Inscreve-se em
 4+a|
 
-Consumer Service:
+Serviço do Cliente:
 
-* validateOrder()
+* validarPedido()
 
-Kitchen service:
+Serviço da Cozinha:
 
-* createTicket()
-* confirmCreateTicket()
-* cancelCreateTicket()
+* criarTicket()
+* confirmarCriacaoDeTicket()
+* cancelarCriacaoDeTicket()
 
-Accounting Service
+Serviço de Contabilidade
 
-* authorize()
+* autoriza()
 
- 4+a| Restaurant Service
+ 4+a| Serviço do Restaurante
 
-* Restaurant Created event
-* Restaurant Menu Revised event
+* Evento de Restaurante Criado
+* Evento de Cardápio do Restaurante Revisado
 
-Saga reply channels:
+Canais de Resposta do Saga:
 
-* Create Order Saga
-* Revise Order Saga
-* Cancel Order Saga
+* Saga de Criar Pedido
+* Saga de Revisar Pedido
+* Saga de Cancelar Pedido
 
 |===
