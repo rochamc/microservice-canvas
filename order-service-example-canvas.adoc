@@ -7,7 +7,7 @@ Esse canvas descreve o `Serviço de Pedido`
 
 [cols="8*"]
 |===
-3+a| Name: 5+a| Serviço de Pedido
+3+a| Nome: 5+a| Serviço de Pedido
 
 3+a| *Descrição:*
 5+a|
