@@ -25,7 +25,8 @@ Avaliação da credibilidade financeira dos aplicantes de empréstimos hipotecá
 
 Assíncrono:
 
-* executarAvaliacao()
+* executarPreAvaliacao()
+* executarAvaliacaoPrincipal()
 
  3+a| N/A 2+a| Canal de evento de Pontuação:
 
