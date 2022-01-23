@@ -78,7 +78,7 @@ Serviço da Agência de Crédito:
 
 * Propriedade Imobiliária Avaliada
 
- 4+a| Serviço de Registro e Verificação das Aplicações
+Serviço de Registro e Verificação das Aplicações
 
 * Aplicação de Crédito Submetida
 * Aplicação de Crédito Verificada por Funcionário
