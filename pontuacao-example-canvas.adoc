@@ -1,55 +1,54 @@
-= Canvas do Serviço de Pedido
+= Canvas do Serviço de Pontuação
 Chris Richardson <http://microservices.io>
 Copyright (c) 2019 Chris Richardson Consulting Inc. All rights reserved
 
 
-Esse canvas descreve o `Serviço de Pedido`
+Esse canvas descreve o `Serviço de Pontuação`
 
 [cols="8*"]
 |===
-3+a| Nome: 5+a| Serviço de Pedido
+3+a| Nome: 5+a| Serviço de Pontuação
 
 3+a| *Descrição:*
 5+a|
 
-O Serviço de Pedido fornece uma API para a criação, revisão e cancelamento de pedidos.
+O Serviço de Pontuação fornece uma API para a execução das avaliações de credibilidade financeira dos aplicantes. Esse microsserviço foi criado a partir do Contexto Delimitado de Pontuação.
 
 8+a| *Competências*
 8+a|
-Gerenciamento de Pedido
+Avaliação da credibilidade financeira dos aplicantes de empréstimos hipotecários.
 8+| *API do Serviço*
 3+| Comandos 3+| Consultas 2+| Eventos Publicados
 3+a| Síncronos:
 
-* criarPedido()
-* revisarPedido()
-* cancelarPedido()
+* N/A
 
 Assíncrono:
 
-* N/A
+* executarAvaliacao()
 
- 3+a| buscarPedido() 2+a| Canal de evento de Pedido:
+ 3+a| N/A 2+a| Canal de evento de Pontuação:
 
-* Pedido Criado
-* Pedido Autorizado
-* Pedido Revisado
-* Pedido Cancelado
-* ...
+* Pré-avaliação efetuada com sucesso
+* Pré-avaliação efetuada com insucesso
+* Avaliação principal efetuada com sucesso
+* Avaliação principal efetuada com insucesso
 
 3+| Requisitos Não-Funcionais 5+a|
 
 * 99.95% de disponibilidade
-* 1000 pedidos/segundo
+* Tempo máximo de 3 dias para resposta da avaliação final
 
 8+| *Observabilidade*
 8+| Métricas-chave
 8+a|
 
-* pedido_feito
-* pedido_aprovado
-* pedido_rejeitado
-* ...
+* avaliacoes_feitas
+* pre_avaliacoes_aprovadas
+* pre_avaliacoes_reprovadas
+* avaliacoes_principais_aprovadas
+* avaliacoes_principais_reprovadas
+* tempo_medio_das_avaliacoes
 
 4+| Endpoint de verificação de saúde
 4+| /actuator/health
@@ -58,34 +57,34 @@ Assíncrono:
 
 8+| *Implementação*
 8+| Modelo de Domínio
-8+a| * Agregado de Pedido
+8+a| * Agregado da Agência de Crédito
+ * Agregado do Aplicante
+ * Agregado do Resultado da Aplicação
+ * Agregado do Financiamento da Propriedade Imobiliária
+ * Agregado do Banço Familiar Mensal
 8+| *Dependências*
 4+| Invoca 4+| Inscreve-se em
 4+a|
 
-Serviço do Cliente:
+Serviço do Sistema Bancário Nuclear:
 
-* validarPedido()
+* consultarBalancoFinanceiro(idAplicante)
 
-Serviço da Cozinha:
+Serviço da Agência de Crédito:
 
-* criarTicket()
-* confirmarCriacaoDeTicket()
-* cancelarCriacaoDeTicket()
+* consultarCredito(formularioDadosAplicante)
 
-Serviço de Contabilidade
+ 4+a| Serviço de Avaliação da Propriedade Imobiliária
 
-* autoriza()
+* Propriedade Imobiliária Avaliada
 
- 4+a| Serviço do Restaurante
+ 4+a| Serviço de Registro e Verificação das Aplicações
 
-* Evento de Restaurante Criado
-* Evento de Cardápio do Restaurante Revisado
+* Aplicação de Crédito Submetida
+* Aplicação de Crédito Verificada por Funcionário
 
 Canais de Resposta do Saga:
 
-* Saga de Criar Pedido
-* Saga de Revisar Pedido
-* Saga de Cancelar Pedido
+N/A
 
 |===
