@@ -1,0 +1,91 @@
+= Canvas do Serviço de Pedido
+Chris Richardson <http://microservices.io>
+Copyright (c) 2019 Chris Richardson Consulting Inc. All rights reserved
+
+
+Esse canvas descreve o `Serviço de Pedido`
+
+[cols="8*"]
+|===
+3+a| Nome: 5+a| Serviço de Pedido
+
+3+a| *Descrição:*
+5+a|
+
+O Serviço de Pedido fornece uma API para a criação, revisão e cancelamento de pedidos.
+
+8+a| *Competências*
+8+a|
+Gerenciamento de Pedido
+8+| *API do Serviço*
+3+| Comandos 3+| Consultas 2+| Eventos Publicados
+3+a| Síncronos:
+
+* criarPedido()
+* revisarPedido()
+* cancelarPedido()
+
+Assíncrono:
+
+* N/A
+
+ 3+a| buscarPedido() 2+a| Canal de evento de Pedido:
+
+* Pedido Criado
+* Pedido Autorizado
+* Pedido Revisado
+* Pedido Cancelado
+* ...
+
+3+| Requisitos Não-Funcionais 5+a|
+
+* 99.95% de disponibilidade
+* 1000 pedidos/segundo
+
+8+| *Observabilidade*
+8+| Métricas-chave
+8+a|
+
+* pedido_feito
+* pedido_aprovado
+* pedido_rejeitado
+* ...
+
+4+| Endpoint de verificação de saúde
+4+| /actuator/health
+
+
+
+8+| *Implementação*
+8+| Modelo de Domínio
+8+a| * Agregado de Pedido
+8+| *Dependências*
+4+| Invoca 4+| Inscreve-se em
+4+a|
+
+Serviço do Cliente:
+
+* validarPedido()
+
+Serviço da Cozinha:
+
+* criarTicket()
+* confirmarCriacaoDeTicket()
+* cancelarCriacaoDeTicket()
+
+Serviço de Contabilidade
+
+* autoriza()
+
+ 4+a| Serviço do Restaurante
+
+* Evento de Restaurante Criado
+* Evento de Cardápio do Restaurante Revisado
+
+Canais de Resposta do Saga:
+
+* Saga de Criar Pedido
+* Saga de Revisar Pedido
+* Saga de Cancelar Pedido
+
+|===
